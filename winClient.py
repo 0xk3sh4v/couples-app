@@ -1,11 +1,16 @@
 import websocket
 from win10toast import ToastNotifier
+from plyer import notification
 
-toaster = ToastNotifier()
+# add to startup folder to run on boot
+# pyinstaller --onefile --noconsole --hidden-import=plyer.platforms.win.notification winClient.py
 
 def on_message(ws, message):
-    print("[📥] New message received!")
-    toaster.show_toast("New Message", message, duration=3, threaded=True)
+    notification.notify(
+        title="New Message",
+        message=message,
+        timeout=5
+    )
 
 def on_open(ws):
     print("[✓] Connected to the WebSocket server")
