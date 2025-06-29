@@ -36,7 +36,7 @@ websocketServer.on('connection', function connectionHandler(socket) {
 });
 
 websocketServer.on('listening', function serverListening() {
-    console.log(`WebSocket server is listening on ws://localhost:${port}`);
+    console.log(`WebSocket server is listening on ${port}`);
 
 });
 
@@ -62,5 +62,5 @@ app.post('/sendMessage', function sendMessage(req, res){
 });
 
 server.listen(port, '0.0.0.0', () => {
-    console.log(`Server is running on http://0.0.0.0:${port}`);
+    console.log(`HTTP server is running on ${port}`);
 });
