@@ -2,7 +2,7 @@ const ws = require('ws');
 const express = require('express');
 const http = require('http');
 
-const port = 4545;
+const port = 0000;
 const app = express();
 const server = http.createServer(app);
 const websocketServer = new ws.Server({ server: server });
