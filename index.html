@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Baby Portal 💖</title>
+  <title>Love Portal 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -84,7 +84,7 @@
   </style>
 </head>
 <body>
-  <h1>Baby Portal 💌</h1>
+  <h1>Love Portal 💌</h1>
 
   <textarea id="messageBox" placeholder="Write something sweet..."></textarea><br>
   <button onclick="sendMessage()">Send</button>
@@ -99,18 +99,18 @@
         const res = await fetch('/status');
 
         if (res.ok) {
-          statusEl.innerText = "He's online 🥰";
+          statusEl.innerText = "Laptop Connected";
           return true;
         } else if (res.status === 404) {
-          statusEl.innerText = "He's not online right now 😢";
+          statusEl.innerText = "Laptop seems offline at the moment";
           return false;
         } else {
-          statusEl.innerText = "Something went wrong, tell me if you see this 💔";
+          statusEl.innerText = "Server Error, Check code on console";
           console.error("Unexpected response:", res.status);
           return false;
         }
       } catch (err) {
-        statusEl.innerText = "Can't connect 😭 But I still love you 💖";
+        statusEl.innerText = "Critical Server Error, check console";
         console.error("Fetch failed:", err);
         return false;
       }
@@ -125,7 +125,7 @@
 
       const isOnline = await checkStatus();
       if (!isOnline) {
-        statusEl.innerText = "Can't send, he's not online 😢";
+        statusEl.innerText = "Wait for the laptop to connect first!!";
         return;
       }
 
@@ -137,19 +137,19 @@
         });
 
         if (res.ok) {
-          statusEl.innerText = "I got your message love! 💌";
+          statusEl.innerText = "I got your message! 💌";
           document.getElementById('messageBox').value = '';
         } else {
           statusEl.innerText = "Message failed to send 😞";
         }
       } catch (err) {
-        statusEl.innerText = "Can't send 😭 But I'm always yours 💖";
+        statusEl.innerText = "Server Error, check console";
         console.error(err);
       }
     }
 
     checkStatus();
-    setInterval(checkStatus, 5000); // Check every 5 seconds
+    setInterval(checkStatus, 3000); // change the interval for low end servers
   </script>
 </body>
 </html>
